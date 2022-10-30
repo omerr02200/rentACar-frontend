@@ -1,4 +1,4 @@
-<table class="table">
+<!-- <table class="table">
     <thead>
         <th>BrandId</th>
         <th>Marka</th>
@@ -9,4 +9,16 @@
         <td>{{brand.brandName}}</td>
     </tr>
 
-</table>
+</table> -->
+<ul class="list-group">
+    <li routerLink="/cars" [class]="getAllBrandClass()">Tüm araçlar</li>
+    <li (click)="setCurrentBrand(brand)" routerLink="cars/brands/{{brand.brandId}}" *ngFor = "let brand of brands" 
+    [class]="getCurrentBrandClass(brand)">{{brand.brandName}}</li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/cars/carDetail">tıkla</a>
+    </li>
+
+</ul>
+<h5 *ngIf="currentBrand">{{currentBrand.brandName}}</h5>
+<img src="https://localhost:44316/Uploads/Images/DefaultImage.jpg" alt="" width="150" height="75">

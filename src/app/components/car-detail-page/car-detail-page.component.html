@@ -1,0 +1,28 @@
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<table *ngIf="dataLoaded==true" class="table">
+
+    <thead>
+        <tr>
+            <th>Foto</th>
+            <th>Marka</th>
+            <th>Renk</th>
+            <th>Model Yılı</th>
+            <th>Açıklama</th>
+            <th>Ücret</th>
+        </tr>
+    </thead>
+
+    <tr *ngFor = "let carDetail of carDetails">
+        <td><img [src]="imagePath + carDetail.imagePath" alt="" width="150" height="150"></td>
+        <td>{{carDetail.brandName}}</td>
+        <td>{{carDetail.colorName}}</td>
+        <td>{{carDetail.modelYear}}</td>
+        <td>{{carDetail.description}}</td>
+        <td>{{carDetail.dailyPrice}}</td>
+    </tr>
+</table>
+</div>
+</div>
+</div>

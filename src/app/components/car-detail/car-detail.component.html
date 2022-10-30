@@ -2,7 +2,7 @@
     <span class="visually-hidden">Loading...</span>
   </div>
 
-<table *ngIf="dataLoaded==true" class="table">
+<table *ngIf="dataLoaded==true" class="table table-hover">
 
     <thead>
         <tr>
@@ -12,15 +12,16 @@
             <th>Model Yılı</th>
             <th>Açıklama</th>
             <th>Ücret</th>
+            <th>foto</th>
         </tr>
     </thead>
-
-    <tr *ngFor = "let carDetail of carDetails">
+    <tr *ngFor = "let carDetail of carDetails" routerLink="/cars/getcardetailsbyid/{{carDetail.carId}}">
         <td>{{carDetail.carId}}</td>
         <td>{{carDetail.brandName}}</td>
         <td>{{carDetail.colorName}}</td>
         <td>{{carDetail.modelYear}}</td>
         <td>{{carDetail.description}}</td>
         <td>{{carDetail.dailyPrice}}</td>
+        <td>{{carDetail.imagePath}}</td>
     </tr>
 </table>

@@ -10,6 +10,7 @@ import { CarService } from 'src/app/services/car.service';
 export class ColorComponent implements OnInit {
 
   colors:Color[] = [];
+  currentColor:Color
 
   constructor(private carService:CarService) { }
 
@@ -21,6 +22,18 @@ export class ColorComponent implements OnInit {
     this.carService.getColors().subscribe((response=>{
       this.colors = response.data
     }))
+  }
+
+  setCurrentColor(color:Color){
+    this.currentColor = color
+  }
+
+  getCurrentColorClass(color:Color){
+    if(this.currentColor==color){
+      return "list-group-item active"
+    }else{
+      return "list-group-item"
+    }
   }
 
 }
